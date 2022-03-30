@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall -msse2 -O3 -std=c++11 -fPIC -fext-numeric-literals -fopenmp -O3 -DNDEBUG  -rdynamic CMakeFiles/search.dir/search.cpp.o  -o search  libkgraph.a -lboost_timer -lboost_chrono -lboost_system -lboost_program_options -lrt 

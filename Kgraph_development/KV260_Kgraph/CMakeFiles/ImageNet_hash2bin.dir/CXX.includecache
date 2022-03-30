@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/liangshengwen/KV260/kgraph/kgraph/Army_Kgraph/ImageNet_hash2bin.cpp
+iostream
+-
+iomanip
+-
+vector
+-
+fstream
+-
+bitset
+-
+string
+-
+sstream
+-
+iterator
+-
+algorithm
+-
+string.h
+-
+random
+-
+boost/algorithm/string.hpp
+-
+

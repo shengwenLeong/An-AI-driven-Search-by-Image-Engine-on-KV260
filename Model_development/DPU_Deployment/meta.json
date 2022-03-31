@@ -1,6 +1,8 @@
 {
     "lib": "libvart-dpu-runner.so",
     "filename": "googlenet.xmodel",
-    "kernel": "",
+    "kernel": [
+        "subgraph_avg_pool_12\/8x8_s1"
+    ],
     "target": "DPUCVDX8G_ISA0_B1152_01000020F6012203"
 }

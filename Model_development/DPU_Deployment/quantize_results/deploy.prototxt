@@ -19,6 +19,22 @@ layer {
   }
 }
 layer {
+  name: "data_fixed"
+  type: "FixedNeuron"
+  bottom: "data"
+  top: "data"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+    follow_data_layer: true
+  }
+}
+layer {
   name: "conv1/3x3_s1"
   type: "Convolution"
   bottom: "data"
@@ -54,6 +70,21 @@ layer {
   bottom: "conv1/3x3_s1"
   top: "conv1/3x3_s1"
   phase: TRAIN
+}
+layer {
+  name: "conv1/3x3_s1_fixed"
+  type: "FixedNeuron"
+  bottom: "conv1/3x3_s1"
+  top: "conv1/3x3_s1"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
 }
 layer {
   name: "inception_2a/1x1"
@@ -135,6 +166,21 @@ layer {
   phase: TRAIN
 }
 layer {
+  name: "inception_2a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_2a/output"
+  top: "inception_2a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
+}
+layer {
   name: "inception_3a/1x1"
   type: "Convolution"
   bottom: "inception_2a/output"
@@ -214,6 +260,21 @@ layer {
   phase: TRAIN
 }
 layer {
+  name: "inception_3a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_3a/output"
+  top: "inception_3a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
+}
+layer {
   name: "downsample_4/3x3_s2"
   type: "Convolution"
   bottom: "inception_3a/output"
@@ -269,6 +330,21 @@ layer {
   bottom: "downsample_4/pool_s2"
   top: "downsample_4/output"
   phase: TRAIN
+}
+layer {
+  name: "downsample_4/output_fixed"
+  type: "FixedNeuron"
+  bottom: "downsample_4/output"
+  top: "downsample_4/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
 }
 layer {
   name: "inception_5a/1x1"
@@ -350,6 +426,21 @@ layer {
   phase: TRAIN
 }
 layer {
+  name: "inception_5a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_5a/output"
+  top: "inception_5a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
+}
+layer {
   name: "inception_6a/1x1"
   type: "Convolution"
   bottom: "inception_5a/output"
@@ -427,6 +518,21 @@ layer {
   bottom: "inception_6a/3x3"
   top: "inception_6a/output"
   phase: TRAIN
+}
+layer {
+  name: "inception_6a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_6a/output"
+  top: "inception_6a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
 }
 layer {
   name: "inception_7a/1x1"
@@ -508,6 +614,21 @@ layer {
   phase: TRAIN
 }
 layer {
+  name: "inception_7a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_7a/output"
+  top: "inception_7a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
+}
+layer {
   name: "inception_8a/1x1"
   type: "Convolution"
   bottom: "inception_7a/output"
@@ -587,6 +708,21 @@ layer {
   phase: TRAIN
 }
 layer {
+  name: "inception_8a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_8a/output"
+  top: "inception_8a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
+}
+layer {
   name: "downsample_9/3x3_s2"
   type: "Convolution"
   bottom: "inception_8a/output"
@@ -642,6 +778,21 @@ layer {
   bottom: "downsample_9/pool_s2"
   top: "downsample_9/output"
   phase: TRAIN
+}
+layer {
+  name: "downsample_9/output_fixed"
+  type: "FixedNeuron"
+  bottom: "downsample_9/output"
+  top: "downsample_9/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
 }
 layer {
   name: "inception_10a/1x1"
@@ -723,6 +874,21 @@ layer {
   phase: TRAIN
 }
 layer {
+  name: "inception_10a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_10a/output"
+  top: "inception_10a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
+}
+layer {
   name: "inception_11a/1x1"
   type: "Convolution"
   bottom: "inception_10a/output"
@@ -802,6 +968,21 @@ layer {
   phase: TRAIN
 }
 layer {
+  name: "inception_11a/output_fixed"
+  type: "FixedNeuron"
+  bottom: "inception_11a/output"
+  top: "inception_11a/output"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
+  }
+}
+layer {
   name: "avg_pool_12/8x8_s1"
   type: "Pooling"
   bottom: "inception_11a/output"
@@ -811,6 +992,21 @@ layer {
     pool: AVE
     kernel_size: 8
     stride: 1
+  }
+}
+layer {
+  name: "avg_pool_12/8x8_s1_fixed"
+  type: "FixedNeuron"
+  bottom: "avg_pool_12/8x8_s1"
+  top: "avg_pool_12/8x8_s1"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
   }
 }
 layer {
@@ -837,5 +1033,20 @@ layer {
       type: "constant"
       value: 0
     }
+  }
+}
+layer {
+  name: "latent_fixed"
+  type: "FixedNeuron"
+  bottom: "latent"
+  top: "latent"
+  param {
+    lr_mult: 0
+    decay_mult: 0
+  }
+  phase: TRAIN
+  fixed_param {
+    fixed_method: OVER_FLOW
+    bit_width: 8
   }
 }
